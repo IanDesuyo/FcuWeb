@@ -212,6 +212,20 @@
           </tr>
         </tbody>
       </table>
+
+      <form id="contact">
+        <p>Contact me</p>
+        <input name="email" type="email" placeholder="Your email" />
+        <textarea name="message" placeholder="Message..."></textarea>
+        <input type="submit" />
+      </form>
     </div>
+
+    <script>
+      document.querySelector("form").addEventListener("submit", e => {
+        e.preventDefault();
+        console.log(e);
+      });
+    </script>
   </body>
 </html>
