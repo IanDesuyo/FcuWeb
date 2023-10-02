@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>商品列表 - ABC購物網</title>
+    <link rel="stylesheet" href="main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div id="navbar" class="navbar bg-base-200">
+      <div class="navbar-start gap-8">
+        <a class="btn btn-ghost normal-case text-xl font-bold" href="">ABC購物網</a>
+      </div>
+
+      <div class="navbar-end gap-4">
+        <form class="min-w-[16rem] hidden sm:block" action="/">
+          <div class="form-control w-full">
+            <input type="text" name="search" placeholder="搜尋商品" class="input input-bordered" />
+          </div>
+        </form>
+
+        <a type="button" class="btn btn-square btn-ghost" href="">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-shopping-cart"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" />
+            <circle cx="6" cy="19" r="2" />
+            <circle cx="17" cy="19" r="2" />
+            <path d="M17 17h-11v-14h-2" />
+            <path d="M6 5l14 1l-1 7h-13" />
+          </svg>
+        </a>
+
+        <a class="btn btn-primary" href="">登入/註冊</a>
+      </div>
+    </div>
+
+    <main class="container px-2 mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-8" id="item-list">
+        <template id="item-template">
+          <a class="card shadow-2xl hover:scale-105 duration-100" href="">
+            <figure>
+              <img src="{url}" alt="Item image" class="aspect-[3/4] object-cover" />
+            </figure>
+
+            <div class="card-body">
+              <h2 class="card-title">{name}</h2>
+              <div class="flex justify-between">
+                <p class="font-bold text-red-600">${price}</p>
+                <span class="opacity-30">{Ads}</span>
+              </div>
+            </div>
+          </a>
+        </template>
+      </div>
+    </main>
+
+    <footer class="footer p-10 bg-base-200 text-base-content">
+      <aside>
+        <p class="text-2xl font-bold">ABC購物網</p>
+        <p>我們什麼都賣, 但你永遠拿不到貨</p>
+      </aside>
+      <nav>
+        <header class="footer-title">關於我們</header>
+        <a class="link link-hover">人才招募</a>
+        <a class="link link-hover">隱私權聲明</a>
+        <a class="link link-hover">服務條款</a>
+      </nav>
+      <nav>
+        <header class="footer-title">顧客權益</header>
+        <a class="link link-hover">聯絡我們</a>
+        <a class="link link-hover">常見問題</a>
+        <a class="link link-hover">防詐騙宣導</a>
+        <a class="link link-hover">退換貨說明</a>
+      </nav>
+      <nav>
+        <header class="footer-title">社群媒體</header>
+        <a class="link link-hover">Twitter</a>
+        <a class="link link-hover">Facebook</a>
+        <a class="link link-hover">Instagram</a>
+      </nav>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const template = document.querySelector("#item-template");
+        const list = document.querySelector("#item-list");
+
+        const items = Array(20)
+          .fill(null)
+          .map((val, index) => {
+            const randomPrice = Math.floor(Math.random() * 1000);
+
+            return {
+              name: `商品 ${index + 1}`,
+              price: randomPrice,
+              featured: index < 4,
+              url: `https://source.unsplash.com/random/?object&sig=${index}`,
+              rating: Math.floor(Math.random() * 5) + 1,
+            };
+          });
+
+        items.forEach(item => {
+          const clone = template.content.cloneNode(true);
+
+          clone.querySelector("h2").textContent = item.name;
+          clone.querySelector("img").src = item.url;
+          clone.querySelector("p").textContent = `$${item.price}`;
+          clone.querySelector("span").textContent = item.featured ? "Ads" : "";
+
+          list.appendChild(clone);
+        });
+      });
+    </script>
+  </body>
+</html>
