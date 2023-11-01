@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>加碼卷開獎</title>
+    <style>
+      :root,
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      header {
+        background-color: gainsboro;
+        padding: 2rem;
+      }
+      .container {
+        max-width: 1024px;
+        align-self: center;
+        margin: auto;
+      }
+      .prices {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      .nums {
+        display: flex;
+        gap: 8px;
+        max-width: 200px;
+        flex-wrap: wrap;
+      }
+      .nums > * {
+        border-radius: 100%;
+        border: 1px solid orange;
+        aspect-ratio: 1/1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        color: red;
+        font-size: larger;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>加碼卷開獎</h1>
+        <p>週周開獎，讓你好運領不完</p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="prices">
+        <!-- <div class="price">
+          <img src="assets/logo-travel.png" />
+          <p class="bold">國旅卷</p>
+
+          <div class="nums">
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <script src="main3.js"></script>
+  </body>
+</html>
